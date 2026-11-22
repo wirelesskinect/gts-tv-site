@@ -175,10 +175,10 @@
 
   function init() {
     addStaticToggle()
-    apply('light')
+    apply('dark')
   }
-  // Set the attribute right away (before paint) and finish once the page is ready
-  root.setAttribute('data-theme', 'light')
+  // GTS TV is a black theme. Set the attribute right away (before paint) and finish once the page is ready
+  root.setAttribute('data-theme', 'dark')
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init)
   else init()
 })()

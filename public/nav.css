@@ -32,7 +32,7 @@ header.wrap .login { white-space: nowrap; flex-shrink: 0; margin-left: 0; }
   header.wrap nav { gap: 22px; font-size: 14px; }
 }
 
-@media (max-width: 950px) {
+@media (max-width: 820px) {
   header.wrap { flex-wrap: nowrap !important; height: 96px !important; padding-bottom: 0 !important; gap: 12px; position: sticky; }
   header.wrap .brand { height: auto !important; width: 112px !important; }
   header.wrap .brand img { height: 76px !important; }
@@ -65,4 +65,14 @@ header .brand img, header.wrap .brand img { height: 92px !important; width: auto
 @media (max-width: 650px) {
   header .brand, header.wrap .brand { width: 104px !important; }
   header .brand img, header.wrap .brand img { height: 72px !important; }
+}
+
+/* Keep the full menu visible on laptop-size windows; fold into the hamburger only on small screens */
+@media (min-width: 821px) and (max-width: 1180px) {
+  header.wrap { gap: 16px; }
+  header.wrap nav { gap: 18px; font-size: 14px; }
+  header.wrap .signup-link { display: none !important; }
+}
+@media (max-width: 820px) {
+  header.wrap nav .nav-signup { display: block !important; }
 }
