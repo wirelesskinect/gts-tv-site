@@ -1,0 +1,91 @@
+/* GTS TV design preview: extra styles for the mock-only pages (login, checkout, dashboard) */
+.video-ph{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:radial-gradient(ellipse at 50% 40%,#3a0000,#050505 70%);color:#fff}
+.video-ph span{display:grid;place-items:center;width:64px;height:64px;border-radius:50%;border:2px solid #fff8;font-size:24px;padding-left:4px}
+.video-ph small{font-size:12px;letter-spacing:1.5px;color:#cfcfcf;text-transform:uppercase}
+
+.portal{padding-block:64px 90px;display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start;min-height:60vh}
+.portal.single{grid-template-columns:minmax(0,520px);justify-content:center}
+.portal h1{font-size:clamp(44px,5vw,68px);letter-spacing:-3px;margin:18px 0}
+.portal .lead{font-size:18px}
+.panel{background:linear-gradient(145deg,#1b1b1b,#0c0c0c);border:1px solid #3a3a3a;border-radius:20px;padding:34px}
+.panel.hot{border-color:#a80000;background:linear-gradient(135deg,#2a0505,#0c0c0c 55%)}
+.panel h2{font-size:28px;letter-spacing:-1px;margin:0 0 6px}
+.panel .muted{font-size:15px;margin-bottom:22px}
+.plan-summary .price{font-size:64px;margin:10px 0 4px}
+.plan-summary ul{list-style:none;padding:0;margin:22px 0 0;font-size:16px;color:#d8d8d8;line-height:2.3}
+.plan-summary li:before{content:'✓';color:#ff2b2b;margin-right:12px;font-weight:700}
+.field{display:block;margin-bottom:18px}
+.field span{display:block;font-size:14px;font-weight:700;margin-bottom:8px;color:#fff}
+.field input,.field select{width:100%;font:inherit;font-size:17px;color:#fff;background:#0a0a0a;border:1px solid #4a4a4a;border-radius:12px;padding:15px 16px;min-height:54px}
+.field input:focus,.field select:focus{outline:3px solid #ffffff;outline-offset:2px;border-color:#e60000}
+.field select option{background:#111}
+.panel .button{width:100%;justify-content:center;margin-top:6px;cursor:pointer}
+.form-note{font-size:13px;line-height:1.7;color:#a9a9a9;margin:16px 0 0}
+.form-note a{color:#fff;text-decoration:underline}
+.demo-banner{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;border:1px dashed #e60000;border-radius:12px;background:#1a0505;font-size:13px;line-height:1.6;color:#ffd0d0;margin-bottom:24px}
+.demo-banner b{color:#fff}
+.done{text-align:center;padding:20px 0}
+.done .tick{display:grid;place-items:center;width:72px;height:72px;margin:0 auto 20px;border-radius:50%;background:#e60000;font-size:34px}
+.done h2{font-size:30px}
+.done p{color:#cfcfcf;line-height:1.8}
+.hidden{display:none!important}
+
+/* dashboard */
+.acct-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:26px}
+.pill{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;padding:8px 14px;border-radius:100px;background:#2a0505;border:1px solid #a80000;color:#fff}
+.pill i{width:8px;height:8px;border-radius:50%;background:#ff2b2b;box-shadow:0 0 10px #ff2b2b}
+.days b{font-size:44px;font-family:Manrope,Arial,sans-serif;letter-spacing:-2px}
+.days{color:#cfcfcf;font-size:15px}
+.acct-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px}
+.tile{padding:18px 20px;border:1px solid #3a3a3a;border-radius:14px;background:#0a0a0a}
+.tile small{display:block;font-size:11px;letter-spacing:1.4px;color:#a9a9a9;margin-bottom:8px}
+.tile b{font-size:20px;word-break:break-all}
+.tile button{margin-top:10px;font-size:12px;font-weight:700;background:none;border:1px solid #5a5a5a;color:#fff;border-radius:8px;padding:6px 12px}
+.tile button:hover{border-color:#e60000}
+.acct-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+.acct-actions .button{width:auto}
+
+@media(max-width:900px){.portal{grid-template-columns:1fr;gap:34px;padding-block:40px 60px}.panel{padding:26px}.plan-summary .price{font-size:52px}}
+@media(max-width:560px){.acct-grid{grid-template-columns:1fr}.acct-actions .button{width:100%}}
+
+/* island panels stay dark in both themes */
+.panel,.panel h2,.panel .field span,.panel .tile b,.panel .days b,.panel .done h2,.panel .pill,.panel .plan-summary .price{color:#fff}
+.panel .muted,.panel .done p,.panel .days,.panel .plan-summary ul{color:#d8d8d8}
+.panel .eyebrow{color:#ff8a8a}
+.panel .form-note,.panel .tile small{color:#bdbdbd}
+.panel .form-note a{color:#fff}
+.panel .button.outline{color:#fff;border-color:#fff}
+.demo-banner,.demo-banner b{color:#fff}
+.demo-banner span{color:#ff6b6b}
+
+/* same logo size as the homepage header */
+.mockpage>header .brand img{width:67px;height:48px;object-fit:contain}
+.mockpage .footer-inner .brand img{width:67px;height:52px;object-fit:contain}
+html[data-theme="light"] .panel .muted,html[data-theme="light"] .panel p.muted,html[data-theme="light"] .panel .plan-summary ul,html[data-theme="light"] .panel li{color:#d8d8d8}
+html[data-theme="light"] .panel .eyebrow,html[data-theme="light"] .panel p.eyebrow,html[data-theme="light"] .panel small.eyebrow{color:#ff9a9a}
+html[data-theme="light"] .panel h1,html[data-theme="light"] .panel h2,html[data-theme="light"] .panel .field span{color:#fff}
+
+/* white edition: plain panels are white cards, "hot" panels stay as dark red accents */
+html[data-theme="light"] .panel:not(.hot){background:#fff;border:1px solid #f0c8c8;box-shadow:0 18px 44px -24px rgba(200,0,0,.45)}
+html[data-theme="light"] .panel:not(.hot),html[data-theme="light"] .panel:not(.hot) h2,html[data-theme="light"] .panel:not(.hot) .field span,html[data-theme="light"] .panel:not(.hot) .tile b,html[data-theme="light"] .panel:not(.hot) .done h2,html[data-theme="light"] .panel:not(.hot) .days b{color:#111}
+html[data-theme="light"] .panel:not(.hot) .muted,html[data-theme="light"] .panel:not(.hot) p.muted,html[data-theme="light"] .panel:not(.hot) li,html[data-theme="light"] .panel:not(.hot) .days,html[data-theme="light"] .panel:not(.hot) .done p{color:#444}
+html[data-theme="light"] .panel:not(.hot) .eyebrow,html[data-theme="light"] .panel:not(.hot) p.eyebrow{color:#a80000}
+html[data-theme="light"] .panel:not(.hot) .form-note,html[data-theme="light"] .panel:not(.hot) .tile small{color:#595959}
+html[data-theme="light"] .panel:not(.hot) .form-note a{color:#a80000}
+html[data-theme="light"] .panel:not(.hot) .field input,html[data-theme="light"] .panel:not(.hot) .field select{background:#fff;color:#111;border:1px solid #b9b9b9}
+html[data-theme="light"] .panel:not(.hot) .tile{background:#fff6f6;border-color:#f0c8c8}
+html[data-theme="light"] .panel:not(.hot) .button.outline{color:#111;border-color:#111}
+html[data-theme="light"] .panel:not(.hot) .demo-banner,html[data-theme="light"] .panel:not(.hot) .demo-banner b{color:#111;background:#fff2f2;border-color:#e00000}
+html[data-theme="light"] .panel:not(.hot) .demo-banner span{color:#c40000}
+html[data-theme="light"] .demo-banner{background:#fff2f2;color:#111;border-color:#e00000}
+html[data-theme="light"] .demo-banner b{color:#111}
+
+.form-error{background:#fff1f1;border:1px solid #d90000;color:#8a0000;border-radius:12px;padding:12px 14px;font-weight:600;margin:0 0 16px}
+.contact-card{max-width:760px;margin:0 auto;padding:34px;border-radius:20px}
+.contact-card textarea{width:100%;font:inherit;font-size:17px;min-height:130px;border-radius:12px;padding:14px 16px;border:1px solid #b9b9b9;background:#fff;color:#111}
+.contact-card .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.admin-table{width:100%;border-collapse:collapse;font-size:15px}
+.admin-table th,.admin-table td{border-bottom:1px solid #eee;padding:10px 8px;text-align:left;vertical-align:top}
+.admin-table input{font:inherit;padding:8px 10px;border:1px solid #b9b9b9;border-radius:8px;width:100%;min-width:120px}
+.badge-s{display:inline-block;padding:3px 10px;border-radius:99px;font-size:13px;font-weight:700;background:#eee;color:#111}
+.badge-s.todo{background:#d90000;color:#fff}
