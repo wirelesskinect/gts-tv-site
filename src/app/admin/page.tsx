@@ -50,6 +50,14 @@ export default function AdminPage() {
 
   useEffect(() => { loadAccounts() }, [])
 
+  // Bring the customer form back open/closed the way it was last left
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem('admin:open:customer-form')
+      if (saved !== null) setLinkOpen(saved === '1')
+    } catch {}
+  }, [])
+
   async function deleteAccount(a: any) {
     const typed = window.prompt(
       `Permanently delete ${a.email}?\n\nThis removes the account, its login sessions, plan record, orders and payments. It can't be undone.` +
@@ -292,13 +300,13 @@ export default function AdminPage() {
       </div>
       <div>
         {/* IPTV panel connection */}
-        <div className="tile mb-8" style={{ padding: '16px 20px' }}>
-          <div className="flex flex-wrap items-center justify-between gap-2">
-            <strong>IPTV panel</strong>
-            <span className={panel?.connected ? 'text-green-400' : 'text-yellow-400'}>
+        <RememberedDetails storageKey="iptv-panel" defaultOpen={false} className="tile mb-8" style={{ padding: '16px 20px' }}>
+          <summary className="cursor-pointer">
+            <strong>IPTV panel</strong>{' '}
+            <span className={`text-sm ${panel?.connected ? 'text-green-400' : 'text-yellow-400'}`}>
               {!panel ? 'Checking…' : panel.connected ? '● Connected: approvals create and extend lines automatically' : '● Not connected: approvals run in manual mode'}
             </span>
-          </div>
+          </summary>
           {panel && !panel.connected && (
             <p className="text-sm text-gray-400 mt-2">
               {panel.error ? `Error: ${panel.error}. ` : ''}
@@ -321,10 +329,10 @@ export default function AdminPage() {
               )}
             </RememberedDetails>
           )}
-        </div>
+        </RememberedDetails>
 
         {/* Existing customers */}
-        <details id="customer-form" open={linkOpen} onToggle={(e) => setLinkOpen((e.target as HTMLDetailsElement).open)} className="tile mb-8" style={{ padding: '16px 20px' }}>
+        <details id="customer-form" open={linkOpen} onToggle={(e) => { const o = (e.target as HTMLDetailsElement).open; setLinkOpen(o); try { localStorage.setItem('admin:open:customer-form', o ? '1' : '0') } catch {} }} className="tile mb-8" style={{ padding: '16px 20px' }}>
           <summary className="cursor-pointer"><strong>{editingExisting ? `Edit plan for ${linkForm.email}` : 'Add or edit a customer’s TV line & plan'}</strong> <span className="text-sm text-gray-400">: or click <b>Edit plan</b> next to an account below</span></summary>
           <p className="text-sm text-gray-400 mt-3">
             The customer must sign up at gtstv.live first. If you enter the line password, the expiration date is read from the IPTV panel automatically; otherwise the date you type is used.
