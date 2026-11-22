@@ -5,7 +5,7 @@ const securityHeaders = [
   { key: 'X-Content-Type-Options', value: 'nosniff' },
   { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
   { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=(), payment=()' },
-  // Blocks other sites from framing WKTV and stops plugin/base-tag injection.
+  // Blocks other sites from framing GTS TV and stops plugin/base-tag injection.
   // (Scripts and styles aren't restricted here so the existing pages keep working.)
   { key: 'Content-Security-Policy', value: "frame-ancestors 'none'; base-uri 'self'; object-src 'none'; form-action 'self'" },
 ];
@@ -21,7 +21,7 @@ const nextConfig = {
   },
   async rewrites() {
     return {
-      // Serve the new WKTV design pages (in /public) for these addresses.
+      // Serve the GTS TV design pages (in /public) for these addresses.
       // Signup, login, pay, dashboard, renew, support form and admin stay as app pages.
       beforeFiles: [
         { source: '/', destination: '/home.html' },
